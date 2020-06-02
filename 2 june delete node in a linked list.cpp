@@ -6,6 +6,15 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+class optimisedSolution {
+public:
+    void deleteNode(ListNode* node) {
+        node->val  = node->next->val;
+        node->next = node->next->next;
+        return;
+    }
+};
+
 class Solution {
 public:
     void deleteNode(ListNode* node) {
