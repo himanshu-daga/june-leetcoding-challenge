@@ -25,3 +25,23 @@ public:
         return coinCnt(amount, coins, coins.size());
     }
 };
+
+
+class optimalSolution {
+public:
+    int change(int amount, vector<int>& coins) {
+      
+      vector<int> hold(amount+1, 0);
+      
+      hold[0] = 1;
+      
+      
+      for(int c : coins){
+        for(int i = c; i <=amount; i++){
+          hold[i] += hold[i-c];
+        }
+      }
+      
+      return hold[amount];
+    }
+};
